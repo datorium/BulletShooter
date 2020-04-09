@@ -44,8 +44,8 @@ namespace BulletClass
         private void InitializeBullet()
         {
             this.BackColor = Color.Red;
-            this.Height = 20;
-            this.Width = 20;
+            this.Height = 10;
+            this.Width = 10;
         }
     }
 }

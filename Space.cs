@@ -43,6 +43,14 @@ namespace BulletClass
             {
                 FireBullet();
             }
+            else if(e.KeyCode == Keys.Left)
+            {
+                spaceShip.Left -= 10;
+            }
+            else if(e.KeyCode == Keys.Right)
+            {
+                spaceShip.Left += 10;
+            }
         }
     }
 }
