@@ -13,8 +13,7 @@ namespace BulletClass
         private Timer shootTimer;
         private int verVelocity = 0;
         private int horVelocity = 0;
-        private int bulletStep = 2;
-
+        private int bulletStep = 5;
 
         public Bullet()
         {
@@ -25,13 +24,27 @@ namespace BulletClass
         private void InitializeShootTimer()
         {
             shootTimer = new Timer();
+            shootTimer.Tick += new EventHandler(shootTimer_Tick);
             shootTimer.Interval = 20;
+            verVelocity = -bulletStep;
+            shootTimer.Start();
+        }
+
+        private void shootTimer_Tick(object sender, EventArgs e)
+        {
+            this.Top += verVelocity;
+            this.Left += horVelocity;
+            if(this.Top < 0 - this.Height)
+            {
+                this.Dispose();
+                shootTimer.Stop();
+            }
         }
 
         private void InitializeBullet()
         {
             this.BackColor = Color.Red;
-            this.Height = 100;
+            this.Height = 20;
             this.Width = 20;
         }
     }
